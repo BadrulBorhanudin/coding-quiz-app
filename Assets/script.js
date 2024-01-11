@@ -176,6 +176,7 @@ function saveScore() {
     // Display high scores after saving the new score
     displayHighscores();
 }
+
 // The function to display the high scores
 function displayHighscores() {
     // Get the highscores from local storage
@@ -187,12 +188,17 @@ function displayHighscores() {
     // Clear the highscores div
     highscoresDiv.innerHTML = "";
 
+    // Sort the scores in descending order
+    highscores.sort((a, b) => b.score - a.score);
+    
     // Create a new list element for each highscore
     highscores.forEach(function(score) {
         var li = document.createElement("li");
         li.textContent = score.initials + ": " + score.score;
         highscoresDiv.appendChild(li);
+        li.setAttribute("style", " color:black; margin: 1rem; font-size: large");
     });
+    
 }
 
 function clearScores() {

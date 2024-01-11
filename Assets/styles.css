@@ -23,13 +23,18 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin: 10px;
     font-size: 18px
+  }
+
+  #timer-display {
+    font-size: large;
+    padding: 1rem;
   }
   
   /* Start page styling */
   #start-page {
-    height: 500px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,6 +45,7 @@ body {
   #start-page h1 {
     font-size: 40px;
     margin-bottom: 30px;
+    padding: 2rem;
   }
   
   #start-page p {
@@ -52,7 +58,7 @@ body {
   
   /* Quiz container styling */
   #quiz-container {
-    background-color: #fff;
+    background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -90,32 +96,42 @@ body {
   
   /* End screen styling */
   #end-screen {
-    background-color: #fff;
+    background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   #score {
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 10px;
   }
   
   #initials {
-    width: 150px;
+    width: 120px;
     margin-bottom: 10px;
   }
 
   #initials::placeholder {
-    font-size: 14px;
+    font-size: 15px;
   }
   
   #highscores {
-    margin-top: 20px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   #highscores li {
     margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
   }
   
   #button-container {
@@ -123,8 +139,4 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  }
-
-  #start-again-button {
-    margin-right: 10px;
   }
