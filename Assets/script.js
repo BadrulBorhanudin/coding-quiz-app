@@ -49,10 +49,10 @@ function startQuiz() {
     // Clear the highscores div and the message
     document.getElementById("highscores").innerHTML = "";
     document.getElementById("message").textContent = "";
-
+    
     // Show the quiz container
     document.getElementById("quiz-container").style.display = "block";
-
+   
     // Start the timer and display the first question
     timerId = setInterval(function() {
         timer--;
@@ -89,8 +89,10 @@ function displayQuestion() {
         optionButton.onclick = handleOptionClick;
         // Add the button to the options div
         optionsDiv.appendChild(optionButton);
-        // Add a line break after each option
-        optionsDiv.appendChild(document.createElement("br")); 
+        // This loop is being used to reset the option button colors before displaying a new question
+        optionsDiv.childNodes.forEach(function(option) {
+            option.className = 'normal'; 
+          });  
     });
 }
 // The function to handle an option click
@@ -99,10 +101,19 @@ function handleOptionClick(event) {
     var isCorrect = event.target.value === questions[currentQuestionIndex].correctAnswer;
     // Display a message based on whether the answer is correct
     document.getElementById("message").textContent = isCorrect ? "Correct!" : "Wrong!";
+
+    if(isCorrect) {
+        event.target.classList.remove('normal');
+        event.target.classList.add('correct');
+      
+      } else {
+        event.target.classList.remove('normal');
+        event.target.classList.add('wrong');
+      }
     // If the answer is wrong and the timer is greater than 10...
-    if (!isCorrect && timer > 10) { 
+    if (!isCorrect && timer > 10) {
         timer -= 10;
-    // // If the answer is wrong and the timer is less than or equal to 10...
+    // If the answer is wrong and the timer is less than or equal to 10...
     } else if (!isCorrect) { 
         // Set the timer to 0
         timer = 0;
