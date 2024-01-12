@@ -20,7 +20,7 @@ button {
   background-color: blueviolet;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px;
@@ -128,7 +128,10 @@ button {
   
 #initials {
   width: 120px;
-  margin-bottom: 10px;
+  height: 30px;
+  text-align: center;
+  /* margin-bottom: 10px; */
+
 }
 
 #initials::placeholder {
