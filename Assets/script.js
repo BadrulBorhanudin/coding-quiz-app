@@ -65,6 +65,7 @@ function startQuiz() {
     // Display the first question
     displayQuestion();
 }
+
 // The function to display a question
 function displayQuestion() {
     // Get the current question
@@ -95,6 +96,7 @@ function displayQuestion() {
           });  
     });
 }
+
 // The function to handle an option click
 function handleOptionClick(event) {
     // Check if the selected option is correct
@@ -136,6 +138,7 @@ function handleOptionClick(event) {
         }
     }
 }
+
 // The function to end the quiz
 function endQuiz() {
     // Clear the timer interval
@@ -154,6 +157,7 @@ function endQuiz() {
     // Show the start again button
     document.getElementById("start-again-button").style.display = "block";
 }
+
 // The function to save a score
 function saveScore() {
     // Get the initials input
@@ -199,17 +203,22 @@ function displayHighscores() {
     // Clear the highscores div
     highscoresDiv.innerHTML = "";
 
-    // Sort the scores in descending order
+    // Sort the scores in descending order based on the 'score' property
     highscores.sort((a, b) => b.score - a.score);
-    
-    // Create a new list element for each highscore
+
+    // Create the ordered list and append it to the div
+    const ol = document.createElement("ol");
+    highscoresDiv.appendChild(ol);
+
+    // Create and append list items with numbering
+    let counter = 1;
     highscores.forEach(function(score) {
-        var li = document.createElement("li");
-        li.textContent = score.initials + ": " + score.score;
-        highscoresDiv.appendChild(li);
-        li.setAttribute("style", " color:black; margin: 1rem; font-size: large");
+        const li = document.createElement("li");
+        li.textContent = `${counter}. ${score.initials}: ${score.score}`;
+        li.setAttribute("style", "color: black; margin: 0.5rem; font-size: large");
+        ol.appendChild(li);
+        counter++;
     });
-    
 }
 
 function clearScores() {
